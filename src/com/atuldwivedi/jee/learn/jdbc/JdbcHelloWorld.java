@@ -6,6 +6,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * 
+ * @author Atul Dwivedi
+ * 
+ * CREATE TABLE EMP(EMP_ID NUMBER, EMP_NAME VARCHAR);
+ * INSERT INTO EMP VALUES(1001, 'Atul');
+ *
+ */
 public class JdbcHelloWorld {
 	public static void main(String[] args) {
 		Connection con = null;
