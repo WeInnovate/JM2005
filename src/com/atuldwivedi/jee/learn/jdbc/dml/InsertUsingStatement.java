@@ -16,7 +16,7 @@ public class InsertUsingStatement {
 			if (i > 0) {
 				System.out.println("Insertion successful.");
 			}
-			
+//			con.commit();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM EMP");
 			while (rs.next()) {
 				int empId = rs.getInt(1);

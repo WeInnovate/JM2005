@@ -3,8 +3,13 @@ package com.atuldwivedi.jee.learn.jdbc.user;
 public class MyUserApp {
 
 	public static void main(String[] args) {
-		User user = new User(10001L, "Sachin", 20, "Male");
 		UserDao userDao = new UserDaoImpl();
-		userDao.inserUser(user);
+		
+//		User user = new User(10002L, "Sehwag", 20, "Male");
+//		userDao.inserUser(user);
+		
+		User u = userDao.fetchUserById(10002L);
+		System.out.println(u);
 	}
+	
 }

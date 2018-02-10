@@ -5,11 +5,13 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import com.atuldwivedi.jee.learn.jdbc.util.DbUtil;
+
 public class DeleteUsingStatement {
 	public static void main(String[] args) {
-		try (Connection con = DriverManager.getConnection("jdbc:h2:~/test", "sa", "")) {
+		try (Connection con = DbUtil.getConn()) {
 			Statement stmt = con.createStatement();
-			int i = stmt.executeUpdate("DELETE FROM EMP WHERE EMP_ID = 1001");
+			int i = stmt.executeUpdate("DELETE FROM EMP WHERE EMP_ID = 1012");
 			if (i > 0) {
 				System.out.println("Delete successful.");
 			}

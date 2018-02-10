@@ -6,7 +6,7 @@ public interface UserDao {
 
 	public void inserUser(User user);
 
-	public User fetchUserById(String userId);
+	public User fetchUserById(long userId);
 
 	public void deleteUserById(String userId);
 
