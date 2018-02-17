@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.atuldwivedi.jee.learn.jdbc.util.DbUtil;
@@ -41,19 +42,18 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public User fetchUserById(long userId) {
 		User user = null;
-		try(Connection con = DbUtil.getConn()){
+		try (Connection con = DbUtil.getConn()) {
 			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * FROM USER WHERE USER_ID = "+userId+"");
-		while(rs.next()) {
-			long uId = rs.getLong(1);
-			String userName = rs.getString(2);
-			int age = rs.getInt(3);
-			String gender = rs.getString(4);
-			user = new User(uId, userName, age, gender);
-		}
-		
-		}
-		catch(SQLException ex) {
+			ResultSet rs = stmt.executeQuery("SELECT * FROM USER WHERE USER_ID = " + userId + "");
+			while (rs.next()) {
+				long uId = rs.getLong(1);
+				String userName = rs.getString(2);
+				int age = rs.getInt(3);
+				String gender = rs.getString(4);
+				user = new User(uId, userName, age, gender);
+			}
+
+		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
 		return user;
@@ -67,8 +67,24 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public List<User> fetchUsers() {
-		// TODO Auto-generated method stub
-		return null;
+		List<User> userList = new ArrayList<>();
+		
+		try (Connection con = DbUtil.getConn()) {
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM USER");
+			while (rs.next()) {
+				long uId = rs.getLong(1);
+				String userName = rs.getString(2);
+				int age = rs.getInt(3);
+				String gender = rs.getString(4);
+				User user = new User(uId, userName, age, gender);
+				userList.add(user);
+			}
+
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+		return userList;
 	}
 
 }
