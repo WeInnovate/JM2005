@@ -56,7 +56,7 @@ public class ItemDaoImpl implements ItemDao {
 	public void deleteItemById(long itemId) {
 		try(Connection con = DbUtil.getConn()) {
 			
-			PreparedStatement pstmt = con.prepareStatement("DELETE FROM ITEM)
+			PreparedStatement pstmt = con.prepareStatement("DELETE FROM ITEM");
 		}
 		
 		
