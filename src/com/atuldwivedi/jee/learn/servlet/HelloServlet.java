@@ -1,4 +1,4 @@
-package com.atuldwivedi.jee.servlet;
+package com.atuldwivedi.jee.learn.servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
