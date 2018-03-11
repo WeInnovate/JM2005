@@ -20,47 +20,48 @@
 			<h1 class="navbar-title">
 				
 			</h1>
-			<form>
+			<form action="registration" method="post">
 				<div class="col-md-12 well well-sm">
 					<div class="form-class">
 						<label for="name">Your Fullname:</label>
 						<div class="row">
 						<div class="col-md-6">						
-						<input type="text" class="form-control" id="name" placeholder="Enter Firstname">
+						<input type="text" name="firstName" class="form-control" id="name" placeholder="Enter Firstname">
 						</div>						
 						<div class="col-md-6">						
-						<input type="text" class="form-control" id="name" placeholder="Enter Lastname">
+						<input type="text" name="lastName" class="form-control" id="name" placeholder="Enter Lastname">
 						</div>
 						</div>
 					</div>
 					<div class="form-class">
 						<label for="number">Your Phone number:</label>
-						<input type="text" class="form-control" id="number" placeholder="Enter Phone number">
+						<input type="text" name="mobile" class="form-control" id="number" placeholder="Enter Phone number">
 					</div>
 					<div class="form-class">
 						<label for="email">Your Email id:</label>
-						<input type="text" class="form-control" id="email" placeholder="Enter Email id">
+						<input type="text" name="email" class="form-control" id="email" placeholder="Enter Email id">
 					</div>
 					<div class="form-class">
 						<label for="password">Enter Password:</label>
-						<input type="text" class="form-control" id="password" placeholder="Enter password">
+						<input type="text" name="password" class="form-control" id="password" placeholder="Enter password">
 					</div>
 					<div class="form-class">
 						<label for="password">Re-enter Password:</label>
 						<input type="text" class="form-control" id="password" placeholder="Re-enter password">
 					</div>
 					<label class="radio-inline">
-                		<input type="radio" name="sex" id="inlineCheckbox1" value="male" />
+                		<input type="radio" name="gender" id="inlineCheckbox1" value="Male" />
                 			Male
             		</label>
             		<label class="radio-inline">
-            	    <input type="radio" name="sex" id="inlineCheckbox2" value="female" />
+            	    <input type="radio" name="gender" id="inlineCheckbox2" value="Female" />
                 	Female
             		</label>
             		<br>
             		<div class="form-class">
-            			<label for="dob">Date of Birth</label>
-            			<div class="row">
+            			<label for="dob">Age</label>
+            			<input type="number" name="age" class="form-control" id="age" placeholder="Enter age">
+            			<!-- <div class="row">
             				<div class="col-md-4">
             					<select class="form-control">
             						<option value="Day">Day</option>
@@ -76,10 +77,10 @@
             						<option value="Year">Year</option>
             					</select>
             				</div>
-            			</div>
+            			</div> -->
             			
             		</div>
-					<button type="submit" class="btn btn-success" style="margin-top: 10px;"><a href="#" style="color: #ffffff">Sign Up</a></button>
+					<input type="submit" class="btn btn-success" style="margin-top: 10px;"><a href="#" style="color: #ffffff">Sign Up</a></button>
 
 				</div>
 			</form>

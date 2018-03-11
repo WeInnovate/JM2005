@@ -13,6 +13,11 @@ public class DbUtil {
 		String url = rb.getString("url");
 		String userName = rb.getString("userName");
 		String password = rb.getString("password");
+		try {
+			Class.forName("org.h2.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 		Connection con = DriverManager.getConnection(url, userName, password);
 		return con;
 	}

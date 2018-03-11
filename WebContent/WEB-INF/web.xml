@@ -9,21 +9,13 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
-  
   <servlet>
-  <servlet-name>xyz</servlet-name>
-  <servlet-class>
+    <servlet-name>xyz</servlet-name>
+    <servlet-class>
 	com.atuldwivedi.jee.learn.servlet.MyLoginServlet</servlet-class>
   </servlet>
-  
   <servlet-mapping>
-  <servlet-name>xyz</servlet-name>
-  <url-pattern>/login</url-pattern>
+    <servlet-name>xyz</servlet-name>
+    <url-pattern>/login</url-pattern>
   </servlet-mapping>
-  
-  
-  
-  
-  
 </web-app>

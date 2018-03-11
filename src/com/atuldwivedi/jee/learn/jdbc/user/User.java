@@ -2,29 +2,17 @@ package com.atuldwivedi.jee.learn.jdbc.user;
 
 public class User {
 
-	private long userId;
+	private String firstName;
+
+	private String lastName;
 
 	private String userName;
+
+	private String mobile;
 
 	private int age;
 
 	private String gender;
-
-	public User(long userId, String userName, int age, String gender) {
-		super();
-		this.userId = userId;
-		this.userName = userName;
-		this.age = age;
-		this.gender = gender;
-	}
-
-	public long getUserId() {
-		return userId;
-	}
-
-	public void setUserId(long userId) {
-		this.userId = userId;
-	}
 
 	public String getUserName() {
 		return userName;
@@ -50,11 +38,47 @@ public class User {
 		this.gender = gender;
 	}
 
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public User() {
+		super();
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	public User(String firstName, String lastName, String userName, String mobile, int age, String gender) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.userName = userName;
+		this.mobile = mobile;
+		this.age = age;
+		this.gender = gender;
+	}
+
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", userName=" + userName + ", age=" + age + ", gender=" + gender + "]";
+		return "User [firstName=" + firstName + ", lastName=" + lastName + ", userName=" + userName + ", mobile="
+				+ mobile + ", age=" + age + ", gender=" + gender + "]";
 	}
-	
-	
-
 }
