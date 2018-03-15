@@ -5,9 +5,13 @@ package com.amulya.jee.learn.jdbc.item;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
+import com.atuldwivedi.jee.learn.jdbc.user.User;
 import com.atuldwivedi.jee.learn.jdbc.util.DbUtil;
 
 /**
@@ -28,7 +32,11 @@ public class ItemDaoImpl implements ItemDao {
 			pstmt.setDouble(4, item.getAmount());
 			
 			
-			pstmt.executeUpdate();
+			int i = pstmt.executeUpdate();
+			if(i>0) {
+				System.out.println("item inserted succesfully");
+		
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -40,7 +48,7 @@ public class ItemDaoImpl implements ItemDao {
 	public Item fetchItemById(long itemId) {
 		try(Connection con = DbUtil.getConn()) {
 			
-			PreparedStatement pstmt = con.prepareStatement("SELECT * FROM ITEM where ?");
+			PreparedStatement pstmt = con.prepareStatement("SELECT * FROM ITEM where item_id = ?");
 			pstmt.setLong(1, itemId);
 			pstmt.executeQuery();
 			
@@ -56,7 +64,12 @@ public class ItemDaoImpl implements ItemDao {
 	public void deleteItemById(long itemId) {
 		try(Connection con = DbUtil.getConn()) {
 			
-			PreparedStatement pstmt = con.prepareStatement("DELETE FROM ITEM");
+			PreparedStatement pstmt = con.prepareStatement("DELETE FROM ITEM where item_id = ?" );
+			pstmt.setLong(1, itemId);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		
@@ -64,7 +77,24 @@ public class ItemDaoImpl implements ItemDao {
 
 	@Override
 	public List<Item> fetchItems() {
-		// TODO Auto-generated method stub
+		List<Item> itemList = new ArrayList<>();
+		
+		try(Connection con = DbUtil.getConn()){
+			
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM ITEM");
+			while(rs.next()) {
+				long itemId= rs.getLong(1);
+				String itemName = rs.getString(2);
+				int quantity = rs.getInt(3);
+				double amount = rs.getDouble(4);
+				Item item = new Item(itemId, itemName, quantity, amount);
+				itemList.add(item);
+			}
+		} catch (SQLException e) {
+		  e.printStackTrace();
+		}
+		
 		return null;
 	}
 
