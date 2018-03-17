@@ -11,11 +11,15 @@
   </welcome-file-list>
   <servlet>
     <servlet-name>xyz</servlet-name>
-    <servlet-class>
-	com.atuldwivedi.jee.learn.servlet.MyLoginServlet</servlet-class>
+    <servlet-class>com.atuldwivedi.jee.learn.servlet.MyLoginServlet
+		</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>xyz</servlet-name>
-    <url-pattern>/login</url-pattern>
+    <url-pattern>/mylogin</url-pattern>
   </servlet-mapping>
+  <context-param>
+    <param-name>instituteAddr</param-name>
+    <param-value>Bangalore, IND</param-value>
+  </context-param>
 </web-app>
