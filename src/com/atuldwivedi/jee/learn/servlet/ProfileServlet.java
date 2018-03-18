@@ -25,16 +25,19 @@ public class ProfileServlet extends HttpServlet {
 */
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		response.getWriter().print(request.getParameter("userName"));
 		
-		RequestDispatcher rd1 = request.getRequestDispatcher("header.html");
+		String ut = (String)request.getAttribute("userType");
+		
+		response.getWriter().print("Hello "+request.getParameter("userName")+", you're "+ut);
+		
+		/*RequestDispatcher rd1 = request.getRequestDispatcher("header.html");
 		RequestDispatcher rd2 = request.getRequestDispatcher("profile.html");
 		RequestDispatcher rd3 = request.getRequestDispatcher("footer.html");
 		
 		
 		rd1.include(request, response);
 		rd2.include(request, response);
-		rd3.include(request, response);
+		rd3.include(request, response);*/
 		
 		
 		

@@ -19,12 +19,13 @@ public class LoginServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+		System.out.println("I'm inside the servlet.");
 		String un = request.getParameter("userName");
 		String pass = request.getParameter("password");
 		
 		
 		if(un.equals(pass)) {
+			request.setAttribute("userType", "Admin");
 			RequestDispatcher rd = request.getRequestDispatcher("/profile");
 			rd.forward(request, response);
 		}
